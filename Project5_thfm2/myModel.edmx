@@ -1,0 +1,899 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="THFM_RFSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bills">
+          <Key>
+            <PropertyRef Name="Bill_Id" />
+          </Key>
+          <Property Name="Bill_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyType_Id" Type="int" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Firstname" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Lastname" Type="varchar" MaxLength="100" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Tex" Type="varchar" MaxLength="13" />
+          <Property Name="Rate" Type="int" />
+          <Property Name="Price" Type="varchar" MaxLength="100" />
+          <Property Name="Address_1" Type="varchar" MaxLength="100" />
+          <Property Name="Township_1" Type="varchar" MaxLength="100" />
+          <Property Name="Amphoe_1" Type="varchar" MaxLength="100" />
+          <Property Name="Province_1" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCode_1" Type="varchar" MaxLength="10" />
+          <Property Name="AddressSend" Type="varchar" MaxLength="100" />
+          <Property Name="TownshipSend" Type="varchar" MaxLength="100" />
+          <Property Name="AmphoeSend" Type="varchar" MaxLength="100" />
+          <Property Name="ProvinceSend" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCodeSend" Type="varchar" MaxLength="10" />
+          <Property Name="BillType_Id" Type="int" />
+          <Property Name="Register_Id" Type="int" />
+          <Property Name="Login_Id" Type="int" />
+          <Property Name="chk" Type="int" />
+          <Property Name="Contact_Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="BillType">
+          <Key>
+            <PropertyRef Name="BillType_Id" />
+          </Key>
+          <Property Name="BillType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BillType_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ClassroomDay1">
+          <Key>
+            <PropertyRef Name="ClassroomDay1_Id" />
+          </Key>
+          <Property Name="ClassroomDay1_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassroomDay1_Name" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDay1" Type="int" />
+        </EntityType>
+        <EntityType Name="ClassroomDay2">
+          <Key>
+            <PropertyRef Name="ClassroomDay2_Id" />
+          </Key>
+          <Property Name="ClassroomDay2_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClassroomDay2_Name" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDay2" Type="int" />
+        </EntityType>
+        <EntityType Name="CompanyType">
+          <Key>
+            <PropertyRef Name="CompanyType_Id" />
+          </Key>
+          <Property Name="CompanyType_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyType_Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Event_Log">
+          <Key>
+            <PropertyRef Name="id_event" />
+          </Key>
+          <Property Name="id_event" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="event" Type="varchar" MaxLength="255" />
+          <Property Name="user" Type="varchar" MaxLength="255" />
+          <Property Name="date" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Login_Id" />
+          </Key>
+          <Property Name="Login_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="l_Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="l_Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="l_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="ConfirmPassword" Type="varchar" MaxLength="50" />
+          <Property Name="permission" Type="int" />
+        </EntityType>
+        <EntityType Name="Rate">
+          <Key>
+            <PropertyRef Name="Rate" />
+          </Key>
+          <Property Name="Rate" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Register">
+          <Key>
+            <PropertyRef Name="Register_Id" />
+          </Key>
+          <Property Name="Register_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titlename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="ClassroomDay1_Id" Type="int" />
+          <Property Name="ClassroomDay2_Id" Type="int" />
+          <Property Name="StatusPay_Id" Type="int" />
+          <Property Name="DateRegister" Type="datetime2" Precision="7" />
+          <Property Name="DateChk" Type="datetime2" Precision="7" />
+          <Property Name="Login_Id" Type="int" />
+          <Property Name="User_Edit" Type="varchar" MaxLength="255" />
+          <Property Name="Edit_Date" Type="datetime2" Precision="7" />
+          <Property Name="img" Type="image" />
+        </EntityType>
+        <EntityType Name="StatusPay">
+          <Key>
+            <PropertyRef Name="StatusPay_Id" />
+          </Key>
+          <Property Name="StatusPay_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusPay_Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'THFM2_RFS.dbo.Report' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Register_Id" />
+            <PropertyRef Name="Titlename" />
+          </Key>
+          <Property Name="Register_Id" Type="int" Nullable="false" />
+          <Property Name="Titlename" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Position" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="ClassroomDay1_Name" Type="varchar" MaxLength="50" />
+          <Property Name="ClassroomDay2_Name" Type="varchar" MaxLength="50" />
+          <Property Name="DateRegister" Type="datetime2" Precision="7" />
+          <Property Name="CompanyType_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Bill_Id" Type="int" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Firstname" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Lastname" Type="varchar" MaxLength="100" />
+          <Property Name="Contact_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" />
+          <Property Name="Fax" Type="varchar" MaxLength="20" />
+          <Property Name="Tex" Type="varchar" MaxLength="13" />
+          <Property Name="Rate" Type="int" />
+          <Property Name="Price" Type="varchar" MaxLength="100" />
+          <Property Name="Address_1" Type="varchar" MaxLength="100" />
+          <Property Name="Township_1" Type="varchar" MaxLength="100" />
+          <Property Name="Amphoe_1" Type="varchar" MaxLength="100" />
+          <Property Name="Province_1" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCode_1" Type="varchar" MaxLength="10" />
+          <Property Name="AddressSend" Type="varchar" MaxLength="100" />
+          <Property Name="TownshipSend" Type="varchar" MaxLength="100" />
+          <Property Name="AmphoeSend" Type="varchar" MaxLength="100" />
+          <Property Name="ProvinceSend" Type="varchar" MaxLength="100" />
+          <Property Name="ZipCodeSend" Type="varchar" MaxLength="10" />
+          <Property Name="BillType_Name" Type="varchar" MaxLength="50" />
+          <Property Name="l_Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="l_Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="l_Email" Type="varchar" MaxLength="50" />
+          <Property Name="StatusPay_Name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Bills__BillType___403A8C7D">
+          <End Role="BillType" Type="Self.BillType" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillType">
+              <PropertyRef Name="BillType_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="BillType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__CompanyTy__412EB0B6">
+          <End Role="CompanyType" Type="Self.CompanyType" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="CompanyType_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="CompanyType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Login_Id__4222D4EF">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Login_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Login_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Rate__4316F928">
+          <End Role="Rate" Type="Self.Rate" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rate">
+              <PropertyRef Name="Rate" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Rate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Register___440B1D61">
+          <End Role="Register" Type="Self.Register" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bills" Type="Self.Bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Register">
+              <PropertyRef Name="Register_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Register_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Classr__44FF419A">
+          <End Role="ClassroomDay1" Type="Self.ClassroomDay1" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassroomDay1">
+              <PropertyRef Name="ClassroomDay1_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="ClassroomDay1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Classr__45F365D3">
+          <End Role="ClassroomDay2" Type="Self.ClassroomDay2" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassroomDay2">
+              <PropertyRef Name="ClassroomDay2_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="ClassroomDay2_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Login___46E78A0C">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Login_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="Login_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Status__47DBAE45">
+          <End Role="StatusPay" Type="Self.StatusPay" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPay">
+              <PropertyRef Name="StatusPay_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="StatusPay_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="THFM_RFSModelStoreContainer">
+          <EntitySet Name="Bills" EntityType="Self.Bills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BillType" EntityType="Self.BillType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassroomDay1" EntityType="Self.ClassroomDay1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClassroomDay2" EntityType="Self.ClassroomDay2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompanyType" EntityType="Self.CompanyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event_Log" EntityType="Self.Event_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rate" EntityType="Self.Rate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Register" EntityType="Self.Register" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatusPay" EntityType="Self.StatusPay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Report" EntityType="Self.Report" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Report].[Register_Id] AS [Register_Id], 
+    [Report].[Titlename] AS [Titlename], 
+    [Report].[Firstname] AS [Firstname], 
+    [Report].[Lastname] AS [Lastname], 
+    [Report].[Position] AS [Position], 
+    [Report].[Email] AS [Email], 
+    [Report].[Phone] AS [Phone], 
+    [Report].[ClassroomDay1_Name] AS [ClassroomDay1_Name], 
+    [Report].[ClassroomDay2_Name] AS [ClassroomDay2_Name], 
+    [Report].[DateRegister] AS [DateRegister], 
+    [Report].[CompanyType_Name] AS [CompanyType_Name], 
+    [Report].[Bill_Id] AS [Bill_Id], 
+    [Report].[CompanyName] AS [CompanyName], 
+    [Report].[Contact_Firstname] AS [Contact_Firstname], 
+    [Report].[Contact_Lastname] AS [Contact_Lastname], 
+    [Report].[Contact_Email] AS [Contact_Email], 
+    [Report].[Tel] AS [Tel], 
+    [Report].[Fax] AS [Fax], 
+    [Report].[Tex] AS [Tex], 
+    [Report].[Rate] AS [Rate], 
+    [Report].[Price] AS [Price], 
+    [Report].[Address_1] AS [Address_1], 
+    [Report].[Township_1] AS [Township_1], 
+    [Report].[Amphoe_1] AS [Amphoe_1], 
+    [Report].[Province_1] AS [Province_1], 
+    [Report].[ZipCode_1] AS [ZipCode_1], 
+    [Report].[AddressSend] AS [AddressSend], 
+    [Report].[TownshipSend] AS [TownshipSend], 
+    [Report].[AmphoeSend] AS [AmphoeSend], 
+    [Report].[ProvinceSend] AS [ProvinceSend], 
+    [Report].[ZipCodeSend] AS [ZipCodeSend], 
+    [Report].[BillType_Name] AS [BillType_Name], 
+    [Report].[l_Firstname] AS [l_Firstname], 
+    [Report].[l_Lastname] AS [l_Lastname], 
+    [Report].[l_Email] AS [l_Email], 
+    [Report].[StatusPay_Name] AS [StatusPay_Name]
+    FROM [dbo].[Report] AS [Report]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Bills__BillType___403A8C7D" Association="Self.FK__Bills__BillType___403A8C7D">
+            <End Role="BillType" EntitySet="BillType" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__CompanyTy__412EB0B6" Association="Self.FK__Bills__CompanyTy__412EB0B6">
+            <End Role="CompanyType" EntitySet="CompanyType" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Login_Id__4222D4EF" Association="Self.FK__Bills__Login_Id__4222D4EF">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Rate__4316F928" Association="Self.FK__Bills__Rate__4316F928">
+            <End Role="Rate" EntitySet="Rate" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Register___440B1D61" Association="Self.FK__Bills__Register___440B1D61">
+            <End Role="Register" EntitySet="Register" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Classr__44FF419A" Association="Self.FK__Register__Classr__44FF419A">
+            <End Role="ClassroomDay1" EntitySet="ClassroomDay1" />
+            <End Role="Register" EntitySet="Register" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Classr__45F365D3" Association="Self.FK__Register__Classr__45F365D3">
+            <End Role="ClassroomDay2" EntitySet="ClassroomDay2" />
+            <End Role="Register" EntitySet="Register" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Login___46E78A0C" Association="Self.FK__Register__Login___46E78A0C">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Register" EntitySet="Register" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Status__47DBAE45" Association="Self.FK__Register__Status__47DBAE45">
+            <End Role="StatusPay" EntitySet="StatusPay" />
+            <End Role="Register" EntitySet="Register" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="THFM_RFSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bill">
+          <Key>
+            <PropertyRef Name="Bill_Id" />
+          </Key>
+          <Property Name="Bill_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyType_Id" Type="Int32" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tex" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Int32" />
+          <Property Name="Price" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Township_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amphoe_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Province_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode_1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AddressSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TownshipSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AmphoeSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCodeSend" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BillType_Id" Type="Int32" />
+          <Property Name="Register_Id" Type="Int32" />
+          <Property Name="Login_Id" Type="Int32" />
+          <Property Name="chk" Type="Int32" />
+          <NavigationProperty Name="BillType" Relationship="Self.FK__Bills__BillType___35BCFE0A" FromRole="Bills" ToRole="BillType" />
+          <NavigationProperty Name="CompanyType" Relationship="Self.FK__Bills__CompanyTy__36B12243" FromRole="Bills" ToRole="CompanyType" />
+          <NavigationProperty Name="Login" Relationship="Self.FK__Bills__Login_Id__37A5467C" FromRole="Bills" ToRole="Login" />
+          <NavigationProperty Name="Rate1" Relationship="Self.FK__Bills__Rate__38996AB5" FromRole="Bills" ToRole="Rate" />
+          <NavigationProperty Name="Register" Relationship="Self.FK__Bills__Register___398D8EEE" FromRole="Bills" ToRole="Register" />
+          <Property Name="Contact_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BillType">
+          <Key>
+            <PropertyRef Name="BillType_Id" />
+          </Key>
+          <Property Name="BillType_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BillType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__BillType___35BCFE0A" FromRole="BillType" ToRole="Bills" />
+        </EntityType>
+        <EntityType Name="ClassroomDay1">
+          <Key>
+            <PropertyRef Name="ClassroomDay1_Id" />
+          </Key>
+          <Property Name="ClassroomDay1_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassroomDay1_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusDay1" Type="Int32" />
+          <NavigationProperty Name="Registers" Relationship="Self.FK__Register__Classr__3A81B327" FromRole="ClassroomDay1" ToRole="Register" />
+        </EntityType>
+        <EntityType Name="ClassroomDay2">
+          <Key>
+            <PropertyRef Name="ClassroomDay2_Id" />
+          </Key>
+          <Property Name="ClassroomDay2_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassroomDay2_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusDay2" Type="Int32" />
+          <NavigationProperty Name="Registers" Relationship="Self.FK__Register__Classr__3B75D760" FromRole="ClassroomDay2" ToRole="Register" />
+        </EntityType>
+        <EntityType Name="CompanyType">
+          <Key>
+            <PropertyRef Name="CompanyType_Id" />
+          </Key>
+          <Property Name="CompanyType_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__CompanyTy__36B12243" FromRole="CompanyType" ToRole="Bills" />
+        </EntityType>
+        <EntityType Name="Event_Log">
+          <Key>
+            <PropertyRef Name="id_event" />
+          </Key>
+          <Property Name="id_event" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="event" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="user" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Login_Id" />
+          </Key>
+          <Property Name="Login_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="l_Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="permission" Type="Int32" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__Login_Id__37A5467C" FromRole="Login" ToRole="Bills" />
+          <NavigationProperty Name="Registers" Relationship="Self.FK__Register__Login___3C69FB99" FromRole="Login" ToRole="Register" />
+        </EntityType>
+        <EntityType Name="Rate">
+          <Key>
+            <PropertyRef Name="Rate1" />
+          </Key>
+          <Property Name="Rate1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__Rate__38996AB5" FromRole="Rate" ToRole="Bills" />
+        </EntityType>
+        <EntityType Name="Register">
+          <Key>
+            <PropertyRef Name="Register_Id" />
+          </Key>
+          <Property Name="Register_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassroomDay1_Id" Type="Int32" />
+          <Property Name="ClassroomDay2_Id" Type="Int32" />
+          <Property Name="StatusPay_Id" Type="Int32" />
+          <Property Name="DateRegister" Type="DateTime" Precision="7" />
+          <Property Name="DateChk" Type="DateTime" Precision="7" />
+          <Property Name="Login_Id" Type="Int32" />
+          <Property Name="User_Edit" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Edit_Date" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Bills" Relationship="Self.FK__Bills__Register___398D8EEE" FromRole="Register" ToRole="Bills" />
+          <NavigationProperty Name="ClassroomDay1" Relationship="Self.FK__Register__Classr__3A81B327" FromRole="Register" ToRole="ClassroomDay1" />
+          <NavigationProperty Name="ClassroomDay2" Relationship="Self.FK__Register__Classr__3B75D760" FromRole="Register" ToRole="ClassroomDay2" />
+          <NavigationProperty Name="Login" Relationship="Self.FK__Register__Login___3C69FB99" FromRole="Register" ToRole="Login" />
+          <NavigationProperty Name="StatusPay" Relationship="Self.FK__Register__Status__3D5E1FD2" FromRole="Register" ToRole="StatusPay" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="StatusPay">
+          <Key>
+            <PropertyRef Name="StatusPay_Id" />
+          </Key>
+          <Property Name="StatusPay_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusPay_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Registers" Relationship="Self.FK__Register__Status__3D5E1FD2" FromRole="StatusPay" ToRole="Register" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="Register_Id" />
+            <PropertyRef Name="Titlename" />
+          </Key>
+          <Property Name="Register_Id" Type="Int32" Nullable="false" />
+          <Property Name="Titlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassroomDay1_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ClassroomDay2_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateRegister" Type="DateTime" Precision="7" />
+          <Property Name="CompanyType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Firstname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Lastname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tex" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+          <Property Name="Rate" Type="Int32" />
+          <Property Name="Price" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Township_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Amphoe_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Province_1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode_1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AddressSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TownshipSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AmphoeSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ProvinceSend" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCodeSend" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BillType_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="l_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusPay_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bill_Id" Type="Int32" />
+          <Property Name="Contact_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Bills__BillType___35BCFE0A">
+          <End Role="BillType" Type="Self.BillType" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BillType">
+              <PropertyRef Name="BillType_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="BillType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__CompanyTy__36B12243">
+          <End Role="CompanyType" Type="Self.CompanyType" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompanyType">
+              <PropertyRef Name="CompanyType_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="CompanyType_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Login_Id__37A5467C">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Login_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Login_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Rate__38996AB5">
+          <End Role="Rate" Type="Self.Rate" Multiplicity="0..1" />
+          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rate">
+              <PropertyRef Name="Rate1" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Rate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bills__Register___398D8EEE">
+          <End Role="Register" Type="Self.Register" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bills" Type="Self.Bill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Register">
+              <PropertyRef Name="Register_Id" />
+            </Principal>
+            <Dependent Role="Bills">
+              <PropertyRef Name="Register_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Classr__3A81B327">
+          <End Role="ClassroomDay1" Type="Self.ClassroomDay1" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassroomDay1">
+              <PropertyRef Name="ClassroomDay1_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="ClassroomDay1_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Classr__3B75D760">
+          <End Role="ClassroomDay2" Type="Self.ClassroomDay2" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClassroomDay2">
+              <PropertyRef Name="ClassroomDay2_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="ClassroomDay2_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Login___3C69FB99">
+          <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="Login_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="Login_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Register__Status__3D5E1FD2">
+          <End Role="StatusPay" Type="Self.StatusPay" Multiplicity="0..1" />
+          <End Role="Register" Type="Self.Register" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatusPay">
+              <PropertyRef Name="StatusPay_Id" />
+            </Principal>
+            <Dependent Role="Register">
+              <PropertyRef Name="StatusPay_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bills" EntityType="Self.Bill" />
+          <EntitySet Name="BillTypes" EntityType="Self.BillType" />
+          <EntitySet Name="ClassroomDay1" EntityType="Self.ClassroomDay1" />
+          <EntitySet Name="ClassroomDay2" EntityType="Self.ClassroomDay2" />
+          <EntitySet Name="CompanyTypes" EntityType="Self.CompanyType" />
+          <EntitySet Name="Event_Log" EntityType="Self.Event_Log" />
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="Rates" EntityType="Self.Rate" />
+          <EntitySet Name="Registers" EntityType="Self.Register" />
+          <EntitySet Name="StatusPays" EntityType="Self.StatusPay" />
+          <EntitySet Name="Reports" EntityType="Self.Report" />
+          <AssociationSet Name="FK__Bills__BillType___35BCFE0A" Association="Self.FK__Bills__BillType___35BCFE0A">
+            <End Role="BillType" EntitySet="BillTypes" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__CompanyTy__36B12243" Association="Self.FK__Bills__CompanyTy__36B12243">
+            <End Role="CompanyType" EntitySet="CompanyTypes" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Login_Id__37A5467C" Association="Self.FK__Bills__Login_Id__37A5467C">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Rate__38996AB5" Association="Self.FK__Bills__Rate__38996AB5">
+            <End Role="Rate" EntitySet="Rates" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bills__Register___398D8EEE" Association="Self.FK__Bills__Register___398D8EEE">
+            <End Role="Register" EntitySet="Registers" />
+            <End Role="Bills" EntitySet="Bills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Classr__3A81B327" Association="Self.FK__Register__Classr__3A81B327">
+            <End Role="ClassroomDay1" EntitySet="ClassroomDay1" />
+            <End Role="Register" EntitySet="Registers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Classr__3B75D760" Association="Self.FK__Register__Classr__3B75D760">
+            <End Role="ClassroomDay2" EntitySet="ClassroomDay2" />
+            <End Role="Register" EntitySet="Registers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Login___3C69FB99" Association="Self.FK__Register__Login___3C69FB99">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Register" EntitySet="Registers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Register__Status__3D5E1FD2" Association="Self.FK__Register__Status__3D5E1FD2">
+            <End Role="StatusPay" EntitySet="StatusPays" />
+            <End Role="Register" EntitySet="Registers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="THFM_RFSModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="Bills">
+            <EntityTypeMapping TypeName="THFM_RFSModel.Bill">
+              <MappingFragment StoreEntitySet="Bills">
+                <ScalarProperty Name="Contact_Email" ColumnName="Contact_Email" />
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+                <ScalarProperty Name="CompanyType_Id" ColumnName="CompanyType_Id" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Contact_Firstname" ColumnName="Contact_Firstname" />
+                <ScalarProperty Name="Contact_Lastname" ColumnName="Contact_Lastname" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tex" ColumnName="Tex" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Address_1" ColumnName="Address_1" />
+                <ScalarProperty Name="Township_1" ColumnName="Township_1" />
+                <ScalarProperty Name="Amphoe_1" ColumnName="Amphoe_1" />
+                <ScalarProperty Name="Province_1" ColumnName="Province_1" />
+                <ScalarProperty Name="ZipCode_1" ColumnName="ZipCode_1" />
+                <ScalarProperty Name="AddressSend" ColumnName="AddressSend" />
+                <ScalarProperty Name="TownshipSend" ColumnName="TownshipSend" />
+                <ScalarProperty Name="AmphoeSend" ColumnName="AmphoeSend" />
+                <ScalarProperty Name="ProvinceSend" ColumnName="ProvinceSend" />
+                <ScalarProperty Name="ZipCodeSend" ColumnName="ZipCodeSend" />
+                <ScalarProperty Name="BillType_Id" ColumnName="BillType_Id" />
+                <ScalarProperty Name="Register_Id" ColumnName="Register_Id" />
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="chk" ColumnName="chk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BillTypes">
+            <EntityTypeMapping TypeName="THFM_RFSModel.BillType">
+              <MappingFragment StoreEntitySet="BillType">
+                <ScalarProperty Name="BillType_Id" ColumnName="BillType_Id" />
+                <ScalarProperty Name="BillType_Name" ColumnName="BillType_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassroomDay1">
+            <EntityTypeMapping TypeName="THFM_RFSModel.ClassroomDay1">
+              <MappingFragment StoreEntitySet="ClassroomDay1">
+                <ScalarProperty Name="ClassroomDay1_Id" ColumnName="ClassroomDay1_Id" />
+                <ScalarProperty Name="ClassroomDay1_Name" ColumnName="ClassroomDay1_Name" />
+                <ScalarProperty Name="StatusDay1" ColumnName="StatusDay1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClassroomDay2">
+            <EntityTypeMapping TypeName="THFM_RFSModel.ClassroomDay2">
+              <MappingFragment StoreEntitySet="ClassroomDay2">
+                <ScalarProperty Name="ClassroomDay2_Id" ColumnName="ClassroomDay2_Id" />
+                <ScalarProperty Name="ClassroomDay2_Name" ColumnName="ClassroomDay2_Name" />
+                <ScalarProperty Name="StatusDay2" ColumnName="StatusDay2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompanyTypes">
+            <EntityTypeMapping TypeName="THFM_RFSModel.CompanyType">
+              <MappingFragment StoreEntitySet="CompanyType">
+                <ScalarProperty Name="CompanyType_Id" ColumnName="CompanyType_Id" />
+                <ScalarProperty Name="CompanyType_Name" ColumnName="CompanyType_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Event_Log">
+            <EntityTypeMapping TypeName="THFM_RFSModel.Event_Log">
+              <MappingFragment StoreEntitySet="Event_Log">
+                <ScalarProperty Name="id_event" ColumnName="id_event" />
+                <ScalarProperty Name="event" ColumnName="event" />
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="THFM_RFSModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="l_Firstname" ColumnName="l_Firstname" />
+                <ScalarProperty Name="l_Lastname" ColumnName="l_Lastname" />
+                <ScalarProperty Name="l_Email" ColumnName="l_Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+                <ScalarProperty Name="permission" ColumnName="permission" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rates">
+            <EntityTypeMapping TypeName="THFM_RFSModel.Rate">
+              <MappingFragment StoreEntitySet="Rate">
+                <ScalarProperty Name="Rate1" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Registers">
+            <EntityTypeMapping TypeName="THFM_RFSModel.Register">
+              <MappingFragment StoreEntitySet="Register">
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="Register_Id" ColumnName="Register_Id" />
+                <ScalarProperty Name="Titlename" ColumnName="Titlename" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="ClassroomDay1_Id" ColumnName="ClassroomDay1_Id" />
+                <ScalarProperty Name="ClassroomDay2_Id" ColumnName="ClassroomDay2_Id" />
+                <ScalarProperty Name="StatusPay_Id" ColumnName="StatusPay_Id" />
+                <ScalarProperty Name="DateRegister" ColumnName="DateRegister" />
+                <ScalarProperty Name="DateChk" ColumnName="DateChk" />
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="User_Edit" ColumnName="User_Edit" />
+                <ScalarProperty Name="Edit_Date" ColumnName="Edit_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatusPays">
+            <EntityTypeMapping TypeName="THFM_RFSModel.StatusPay">
+              <MappingFragment StoreEntitySet="StatusPay">
+                <ScalarProperty Name="StatusPay_Id" ColumnName="StatusPay_Id" />
+                <ScalarProperty Name="StatusPay_Name" ColumnName="StatusPay_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="THFM_RFSModel.Report">
+              <MappingFragment StoreEntitySet="Report">
+                <ScalarProperty Name="Contact_Email" ColumnName="Contact_Email" />
+                <ScalarProperty Name="Bill_Id" ColumnName="Bill_Id" />
+                <ScalarProperty Name="Register_Id" ColumnName="Register_Id" />
+                <ScalarProperty Name="Titlename" ColumnName="Titlename" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ClassroomDay1_Name" ColumnName="ClassroomDay1_Name" />
+                <ScalarProperty Name="ClassroomDay2_Name" ColumnName="ClassroomDay2_Name" />
+                <ScalarProperty Name="DateRegister" ColumnName="DateRegister" />
+                <ScalarProperty Name="CompanyType_Name" ColumnName="CompanyType_Name" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Contact_Firstname" ColumnName="Contact_Firstname" />
+                <ScalarProperty Name="Contact_Lastname" ColumnName="Contact_Lastname" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tex" ColumnName="Tex" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Address_1" ColumnName="Address_1" />
+                <ScalarProperty Name="Township_1" ColumnName="Township_1" />
+                <ScalarProperty Name="Amphoe_1" ColumnName="Amphoe_1" />
+                <ScalarProperty Name="Province_1" ColumnName="Province_1" />
+                <ScalarProperty Name="ZipCode_1" ColumnName="ZipCode_1" />
+                <ScalarProperty Name="AddressSend" ColumnName="AddressSend" />
+                <ScalarProperty Name="TownshipSend" ColumnName="TownshipSend" />
+                <ScalarProperty Name="AmphoeSend" ColumnName="AmphoeSend" />
+                <ScalarProperty Name="ProvinceSend" ColumnName="ProvinceSend" />
+                <ScalarProperty Name="ZipCodeSend" ColumnName="ZipCodeSend" />
+                <ScalarProperty Name="BillType_Name" ColumnName="BillType_Name" />
+                <ScalarProperty Name="l_Firstname" ColumnName="l_Firstname" />
+                <ScalarProperty Name="l_Lastname" ColumnName="l_Lastname" />
+                <ScalarProperty Name="l_Email" ColumnName="l_Email" />
+                <ScalarProperty Name="StatusPay_Name" ColumnName="StatusPay_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

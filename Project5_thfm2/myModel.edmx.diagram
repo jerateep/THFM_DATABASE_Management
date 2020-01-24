@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d6ab06a000a34cc88b720823924da181" Name="Diagram1">
+        <EntityTypeShape EntityType="THFM_RFSModel.Bill" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.BillType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.ClassroomDay1" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.ClassroomDay2" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.CompanyType" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.Event_Log" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.Login" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.Rate" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.Register" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.StatusPay" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="THFM_RFSModel.Report" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Bills__BillType___35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Bills__CompanyTy__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Bills__Login_Id__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Bills__Rate__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Bills__Register___398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Register__Classr__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Register__Classr__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Register__Login___3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="THFM_RFSModel.FK__Register__Status__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
